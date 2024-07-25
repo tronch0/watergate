@@ -18,5 +18,14 @@
     }
   ],
   "id": "waterrewat",
-  "description": "This is an app to control our gate"
+  "description": "This is an app to control our gate",
+  "screenshots": [
+    {
+     "src": "Untitled.png",
+      "sizes": "640x448",
+      "type": "image/gif",
+      "form_factor": "wide",
+      "label": "Wonder Widgets"
+    }
+  ]
 }
