@@ -8,9 +8,8 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
     event.respondWith(
-        fetch(event.request)
-            .catch(() => {
-                return new Response('Network error occurred');
-            })
+        fetch(event.request).catch(() => {
+            return new Response('Network error occurred');
+        })
     );
 });
