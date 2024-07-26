@@ -3,27 +3,110 @@ body, html {
     padding: 0;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
+    background-color: #000a13;
+    font-family: 'Lato', sans-serif;
 }
 
 .container {
     text-align: center;
 }
 
+.headline {
+    font-size: 29px;
+    color: white;
+    margin-bottom: 44px;
+    font-weight: 450;
+}
+
 .round-button {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
+    background-color: #4c535b;
+    border: none;
+    cursor: pointer;
+    animation: breathe 5s infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: white;
+    font-size: 48px;
+}
+
+.round-button i {
+    font-size: 76.8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+#statusMessage {
+    margin-top: 20px;
+    font-size: 16px;
+    color: white;
+    font-weight: 300;
+}
+
+.install-snackbar {
+    display: none; /* Initially hidden */
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4c535b;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: bottom 0.3s ease-in-out;
+    font-size: 16px;
+    min-width: 300px;
+}
+
+.snackbar-install-button {
     background-color: #007bff;
     color: white;
     border: none;
+    padding: 5px 10px;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
-.round-button:active {
-    background-color: #0056b3;
+.snackbar-install-button i {
+    font-size: 20px;
+}
+
+.close-snackbar {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 10px;
+}
+
+.install-snackbar.show {
+    bottom: 20px; /* Slide up into view */
 }

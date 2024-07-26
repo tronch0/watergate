@@ -1,3 +1,4 @@
+
 // document.getElementById('actionButton').addEventListener('click', () => {
 //     fetch('https://your-predefined-url.com/endpoint')
 //         .then(response => response.json())
@@ -5,7 +6,6 @@
 //         .catch(error => console.error('Error:', error));
 // });
 
-// // Register the service worker
 // if ('serviceWorker' in navigator) {
 //     navigator.serviceWorker.register('service-worker.js')
 //         .then(registration => {
@@ -17,27 +17,22 @@
 // }
 
 // let deferredPrompt;
-
 // window.addEventListener('beforeinstallprompt', (e) => {
-//     // Prevent the mini-infobar from appearing on mobile
+//     console.log("beforeinstallprompt fired!");
+
 //     e.preventDefault();
-//     // Stash the event so it can be triggered later.
 //     deferredPrompt = e;
-//     // Update UI notify the user they can install the PWA
 //     showInstallPromotion();
 // });
 
 // function showInstallPromotion() {
-//     // You can use a custom UI element to notify the user
 //     const installButton = document.createElement('button');
 //     installButton.innerText = 'Install App';
 //     installButton.classList.add('install-button');
 //     document.body.appendChild(installButton);
 
 //     installButton.addEventListener('click', () => {
-//         // Show the install prompt
 //         deferredPrompt.prompt();
-//         // Wait for the user to respond to the prompt
 //         deferredPrompt.userChoice.then((choiceResult) => {
 //             if (choiceResult.outcome === 'accepted') {
 //                 console.log('User accepted the install prompt');
@@ -45,18 +40,25 @@
 //                 console.log('User dismissed the install prompt');
 //             }
 //             deferredPrompt = null;
+//             installButton.remove();
 //         });
 //     });
 // }
 
-
 document.getElementById('actionButton').addEventListener('click', () => {
     fetch('https://your-predefined-url.com/endpoint')
         .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error('Error:', error));
+        .then(data => {
+            console.log(data);
+            document.getElementById('statusMessage').textContent = 'Gate is opening...';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('statusMessage').textContent = 'Failed to open the gate.';
+        });
 });
 
+// Register the service worker
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('service-worker.js')
         .then(registration => {
@@ -67,31 +69,55 @@ if ('serviceWorker' in navigator) {
         });
 }
 
-let deferredPrompt;
-window.addEventListener('beforeinstallprompt', (e) => {
-    console.log("beforeinstallprompt fired!");
+// let deferredPrompt;
 
+// window.addEventListener('beforeinstallprompt', (e) => {
+//     e.preventDefault();
+//     deferredPrompt = e;
+//     showInstallPromotion();
+// });
+
+// function showInstallPromotion() {
+//     const installButton = document.createElement('button');
+//     installButton.innerText = 'Install App';
+//     installButton.classList.add('install-button');
+//     document.body.appendChild(installButton);
+
+//     installButton.addEventListener('click', () => {
+//         deferredPrompt.prompt();
+//         deferredPrompt.userChoice.then((choiceResult) => {
+//             if (choiceResult.outcome === 'accepted') {
+//                 console.log('User accepted the install prompt');
+//             } else {
+//                 console.log('User dismissed the install prompt');
+//             }
+//             deferredPrompt = null;
+//             installButton.remove();
+//         });
+//     });
+// }
+
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
-    showInstallPromotion();
+    document.getElementById('installSnackbar').classList.add('show'); // Show the install snackbar
 });
 
-function showInstallPromotion() {
-    const installButton = document.createElement('button');
-    installButton.innerText = 'Install App';
-    installButton.classList.add('install-button');
-    document.body.appendChild(installButton);
-
-    installButton.addEventListener('click', () => {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-                console.log('User accepted the install prompt');
-            } else {
-                console.log('User dismissed the install prompt');
-            }
-            deferredPrompt = null;
-            installButton.remove();
-        });
+document.getElementById('snackbarInstallButton').addEventListener('click', () => {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted the install prompt');
+        } else {
+            console.log('User dismissed the install prompt');
+        }
+        deferredPrompt = null;
+        document.getElementById('installSnackbar').classList.remove('show'); // Hide the install snackbar after the prompt
     });
-}
+});
+
+document.getElementById('closeSnackbar').addEventListener('click', () => {
+    document.getElementById('installSnackbar').classList.remove('show'); // Hide the install snackbar when close button is clicked
+});

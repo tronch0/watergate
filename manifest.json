@@ -19,7 +19,7 @@
     }
   ],
   "id": "waterrewat",
-  "description": "WaterGate is a sleek and efficient Progressive Web App (PWA) designed to simplify your daily parking routine by allowing you to open your building’s parking gate with just a tap on your smartphone. No more fumbling for remote controls or waiting for attendants—WaterGate puts convenience and control directly in your hands.",
+  "description": "WaterGate is a sleek and efficient Progressive Web App (PWA) designed to allow you to open your building’s parking gate with just a tap on your smartphone.",
   "screenshots": [
     {
      "src": "resources/screenshot.png",
