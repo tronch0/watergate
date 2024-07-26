@@ -26,6 +26,12 @@
       "type": "image/gif",
       "form_factor": "wide",
       "label": "Wonder Widgets"
-    }
+    },
+    {
+      "src": "Untitled.png",
+       "sizes": "640x448",
+       "type": "image/gif",
+       "label": "Wonder Widgets"
+     }
   ]
 }
