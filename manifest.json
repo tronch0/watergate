@@ -1,34 +1,35 @@
 {
-  "name": "Watergate",
+  "name": "WaterGate",
   "short_name": "WGate",
   "start_url": ".",
   "display": "standalone",
+  "display_override": ["fullscreen", "minimal-ui"],
   "background_color": "#ffffff",
   "theme_color": "#007bff",
   "icons": [
     {
-      "src": "192x192.png",
+      "src": "screenshot/192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "512x512.png",
+      "src": "screenshot/512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
   "id": "waterrewat",
-  "description": "This is an app to control our gate",
+  "description": "WaterGate is a sleek and efficient Progressive Web App (PWA) designed to simplify your daily parking routine by allowing you to open your building’s parking gate with just a tap on your smartphone. No more fumbling for remote controls or waiting for attendants—WaterGate puts convenience and control directly in your hands.",
   "screenshots": [
     {
-     "src": "Untitled.png",
+     "src": "resources/screenshot.png",
       "sizes": "640x448",
       "type": "image/gif",
       "form_factor": "wide",
       "label": "Wonder Widgets"
     },
     {
-      "src": "Untitled.png",
+      "src": "resources/screenshot.png",
        "sizes": "640x448",
        "type": "image/gif",
        "label": "Wonder Widgets"
