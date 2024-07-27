@@ -43,6 +43,7 @@ body, html {
     color: white;
     font-size: 48px;
     z-index: 2;
+    outline: none; /* Disable the focus outline */
 }
 
 .round-button i {
