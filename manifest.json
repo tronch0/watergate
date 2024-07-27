@@ -1,6 +1,6 @@
 {
-  "name": "WaterGate",
-  "short_name": "WGate",
+  "name": "WaterGate by Ron",
+  "short_name": "WaterGate",
   "start_url": ".",
   "display": "standalone",
   "display_override": ["fullscreen", "minimal-ui"],

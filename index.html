@@ -13,9 +13,12 @@
 <body>
     <div class="container">
         <h1 class="headline">Tap to open</h1>
-        <button id="actionButton" class="round-button">
-            <i class="fas fa-unlock-alt"></i>
-        </button>
+        <div class="button-container">
+            <div class="processing-indicator" id="processingIndicator"></div>
+            <button id="actionButton" class="round-button">
+                <i class="fas fa-unlock-alt"></i>
+            </button>
+        </div>
         <div id="statusMessage"></div>
     </div>
     <div id="installSnackbar" class="install-snackbar">
@@ -29,9 +32,15 @@
 </body>
 </html>
 
-
   <!-- TODO:
   1. Make the app more stylish
+    Add processing indecator in the shape of a transpert overlay around the button
+    if the request of the button succeded change the lock icon to checkmark icon for 3 seconds and then change it back to the lock
+    if the request of the button fail change the lock icon to error icon for 3 seconds and then change it back to the lock
+    Add W logo on the upper screen (right side)
+
+
+
   2. Remove small text from icon
   3. Better description
   4. Better screenshot
