@@ -2,7 +2,7 @@
   "name": "WaterGate by Ron",
   "short_name": "WaterGate",
   "start_url": ".",
-  "display": "standalone",
+  "display": "minimal-ui",
   "display_override": ["fullscreen", "minimal-ui"],
   "background_color": "#ffffff",
   "theme_color": "#007bff",
