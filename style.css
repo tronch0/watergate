@@ -45,6 +45,7 @@ body, html {
     z-index: 2;
     outline: none; /* Disable the focus outline */
     box-shadow: none; /* Prevent focus ring in some browsers */
+    -webkit-tap-highlight-color: transparent; /* Remove blue highlight on mobile */
 }
 
 .round-button:focus {
