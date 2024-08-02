@@ -44,6 +44,12 @@ body, html {
     font-size: 48px;
     z-index: 2;
     outline: none; /* Disable the focus outline */
+    box-shadow: none; /* Prevent focus ring in some browsers */
+}
+
+.round-button:focus {
+    outline: none;
+    box-shadow: none;
 }
 
 .round-button i {
